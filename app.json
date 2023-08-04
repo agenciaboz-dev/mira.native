@@ -1,30 +1,35 @@
 {
   "expo": {
-    "name": "mira.native",
-    "slug": "mira.native",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+      "name": "Mira Suprimentos",
+      "slug": "mirasuprimentos",
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "./assets/logo.png",
+      "userInterfaceStyle": "light",
+      "splash": {
+          "image": "./assets/splash.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+      },
+      "assetBundlePatterns": ["**/*"],
+      "ios": {
+          "supportsTablet": true,
+          "bundleIdentifier": "br.com.agenciaboz.mirasuprimentos"
+      },
+      "android": {
+          "adaptiveIcon": {
+              "foregroundImage": "./assets/adaptive-icon.png",
+              "backgroundColor": "#ffffff"
+          },
+          "package": "br.com.agenciaboz.mirasuprimentos"
+      },
+      "web": {
+          "favicon": "./assets/favicon.png"
+      },
+      "extra": {
+          "eas": {
+              "projectId": "51f610fe-b3ac-416e-b634-a8654ded7df0"
+          }
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
   }
 }
