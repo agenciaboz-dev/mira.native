@@ -7,6 +7,8 @@ import { BackHandler } from "react-native"
 export default function App() {
     const webViewRef = useRef(null)
     const [hasPermission, setHasPermission] = useState<boolean | null>(null)
+    const [reRender, setReRender] = useState(0)
+    
 
     useEffect(() => {
         ;(async () => {
@@ -37,6 +39,7 @@ export default function App() {
                 mediaCapturePermissionGrantType="grant"
                 mediaPlaybackRequiresUserAction={false}
                 textZoom={100}
+                onMessage={() => setReRender(reRender + 1)}
             />
         </>
     )
