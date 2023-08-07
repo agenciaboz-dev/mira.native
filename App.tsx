@@ -36,6 +36,7 @@ export default function App() {
                 allowFileAccess
                 mediaCapturePermissionGrantType="grant"
                 mediaPlaybackRequiresUserAction={false}
+                textZoom={100}
             />
         </>
     )
