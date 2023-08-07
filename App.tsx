@@ -2,13 +2,25 @@ import { StatusBar } from "expo-status-bar"
 import { useEffect, useRef, useState } from "react"
 import { WebView } from "react-native-webview"
 import { Camera } from "expo-camera"
-import { BackHandler } from "react-native"
+import { Alert, BackHandler } from "react-native"
+import * as SplashScreen from "expo-splash-screen"
+
+SplashScreen.preventAutoHideAsync()
 
 export default function App() {
     const webViewRef = useRef(null)
     const [hasPermission, setHasPermission] = useState<boolean | null>(null)
     const [reRender, setReRender] = useState(0)
-    
+
+    const onLoaded = async () => {
+        await SplashScreen.hideAsync()
+    }
+
+    const onError = () => {
+        Alert.alert("Erro", "Falha ao conectar com o servidor, verifique sua conexão com a internet e tente novamente.", [
+            { text: "Fechar", onPress: () => BackHandler.exitApp() },
+        ])
+    }
 
     useEffect(() => {
         ;(async () => {
@@ -40,6 +52,8 @@ export default function App() {
                 mediaPlaybackRequiresUserAction={false}
                 textZoom={100}
                 onMessage={() => setReRender(reRender + 1)}
+                onLoad={onLoaded}
+                onError={onError}
             />
         </>
     )
