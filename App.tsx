@@ -4,15 +4,20 @@ import { WebView } from "react-native-webview"
 import { Camera } from "expo-camera"
 import { Alert, BackHandler } from "react-native"
 import * as SplashScreen from "expo-splash-screen"
+import { SplashLoading } from "./src/Screens/SplashLoading"
+import { PaperProvider } from "react-native-paper"
 
-SplashScreen.preventAutoHideAsync()
+// SplashScreen.preventAutoHideAsync()
 
 export default function App() {
     const webViewRef = useRef(null)
     const [hasPermission, setHasPermission] = useState<boolean | null>(null)
+    const [progress, setProgress] = useState(0)
+    const [loaded, setLoaded] = useState(false)
 
     const onLoaded = async () => {
-        await SplashScreen.hideAsync()
+        // await SplashScreen.hideAsync()
+        setTimeout(() => setLoaded(true), 1000)
     }
 
     const onError = () => {
@@ -27,6 +32,7 @@ export default function App() {
             setHasPermission(status === "granted")
         })()
     }, [])
+
     useEffect(() => {
         const backAction = () => {
             // @ts-ignore
@@ -40,19 +46,22 @@ export default function App() {
     }, [])
 
     return (
-        <>
+        <PaperProvider>
             <StatusBar style="dark" />
+            {!loaded && <SplashLoading progress={progress} />}
             <WebView
                 ref={webViewRef}
                 source={{ uri: "https://app.mirasuprimentos.com.br" }}
                 style={{ flex: 1 }}
+                containerStyle={{ display: loaded ? "flex" : "none" }}
                 allowFileAccess
                 mediaCapturePermissionGrantType="grant"
                 mediaPlaybackRequiresUserAction={false}
                 textZoom={100}
+                onLoadProgress={({ nativeEvent }) => setProgress(nativeEvent.progress)}
                 onLoad={onLoaded}
                 onError={onError}
             />
-        </>
+        </PaperProvider>
     )
 }
