@@ -15,6 +15,10 @@ export default function App() {
     const [progress, setProgress] = useState(0)
     const [loaded, setLoaded] = useState(false)
 
+    const INJECTEDJAVASCRIPT = `(function() {
+        const meta = document.createElement('meta'); meta.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'); meta.setAttribute('name', 'viewport'); document.getElementsByTagName('head')[0].appendChild(meta);
+      })();`
+
     const onLoaded = async () => {
         // await SplashScreen.hideAsync()
         setTimeout(() => setLoaded(true), 1000)
@@ -44,7 +48,6 @@ export default function App() {
 
         return () => backHandler.remove()
     }, [])
-    
 
     return (
         <PaperProvider>
@@ -63,6 +66,8 @@ export default function App() {
                 onLoad={onLoaded}
                 onError={onError}
                 allowsInlineMediaPlayback
+                injectedJavaScript={INJECTEDJAVASCRIPT}
+                onMessage={() => {}}
             />
         </PaperProvider>
     )
