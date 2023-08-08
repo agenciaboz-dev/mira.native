@@ -31,6 +31,15 @@ export default function App() {
     }
 
     useEffect(() => {
+        if (hasPermission === false) {
+            Alert.alert(
+                "Permissão necessária",
+                "Seu dispositivo não está permitindo acesso a câmera. Você pode corrigir isso nos ajustes do seu dispositivo"
+            )
+        }
+    }, [hasPermission])
+
+    useEffect(() => {
         ;(async () => {
             const { status } = await Camera.requestCameraPermissionsAsync()
             setHasPermission(status === "granted")
