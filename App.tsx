@@ -44,6 +44,7 @@ export default function App() {
 
         return () => backHandler.remove()
     }, [])
+    
 
     return (
         <PaperProvider>
@@ -61,6 +62,7 @@ export default function App() {
                 onLoadProgress={({ nativeEvent }) => setProgress(nativeEvent.progress)}
                 onLoad={onLoaded}
                 onError={onError}
+                allowsInlineMediaPlayback
             />
         </PaperProvider>
     )
