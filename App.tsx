@@ -64,7 +64,8 @@ export default function App() {
             {!loaded && <SplashLoading progress={progress} />}
             <WebView
                 ref={webViewRef}
-                source={{ uri: "https://app.mirasuprimentos.com.br" }}
+                source={{ uri: "http://192.168.15.8:3000" }}
+                // source={{ uri: "https://app.mirasuprimentos.com.br" }}
                 style={{ flex: 1 }}
                 containerStyle={{ display: loaded ? "flex" : "none" }}
                 allowFileAccess
