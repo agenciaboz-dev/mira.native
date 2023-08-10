@@ -7,7 +7,7 @@ import * as SplashScreen from "expo-splash-screen"
 import { SplashLoading } from "./src/Screens/SplashLoading"
 import { PaperProvider } from "react-native-paper"
 
-// SplashScreen.preventAutoHideAsync()
+SplashScreen.preventAutoHideAsync()
 
 export default function App() {
     const webViewRef = useRef(null)
@@ -21,7 +21,7 @@ export default function App() {
 
     const onLoaded = async () => {
         // await SplashScreen.hideAsync()
-        setTimeout(() => setLoaded(true), 1000)
+        setTimeout(async () => await SplashScreen.hideAsync(), 1000)
     }
 
     const onError = () => {
@@ -61,13 +61,12 @@ export default function App() {
     return (
         <PaperProvider>
             <StatusBar style="dark" />
-            {!loaded && <SplashLoading progress={progress} />}
+            {/* {!loaded && <SplashLoading progress={progress} />} */}
             <WebView
                 ref={webViewRef}
-                source={{ uri: "http://192.168.15.8:3000" }}
-                // source={{ uri: "https://app.mirasuprimentos.com.br" }}
+                source={{ uri: "https://app.mirasuprimentos.com.br" }}
                 style={{ flex: 1 }}
-                containerStyle={{ display: loaded ? "flex" : "none" }}
+                // containerStyle={{ display: loaded ? "flex" : "none" }}
                 allowFileAccess
                 mediaCapturePermissionGrantType="grant"
                 mediaPlaybackRequiresUserAction={false}
