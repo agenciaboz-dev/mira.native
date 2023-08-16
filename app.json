@@ -3,7 +3,7 @@
       "name": "Mira Suprimentos",
       "slug": "mirasuprimentos",
       "owner": "agenciaboz-dev",
-      "version": "1.0.1",
+      "version": "2.0.0",
       "orientation": "portrait",
       "icon": "./assets/icon.png",
       "userInterfaceStyle": "light",
@@ -16,15 +16,16 @@
       "ios": {
           "supportsTablet": true,
           "bundleIdentifier": "br.com.agenciaboz.mirasuprimentos",
-          "buildNumber": "1.0.1"
+          "buildNumber": "2.0.0"
       },
       "android": {
           "adaptiveIcon": {
               "foregroundImage": "./assets/icon.png",
               "monochromeImage": "./assets/adaptive-icon.png",
-              "backgroundColor": "#53337D"
+              "backgroundColor": "#53337D",
+              "VersionCode": "2.0.0"
           },
-          "package": "br.com.agenciaboz.mirasuprimentos"
+          "package": "com.mira.guide"
       },
       "web": {
           "favicon": "./assets/icon.png"
