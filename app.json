@@ -14,7 +14,7 @@
       },
       "assetBundlePatterns": ["**/*"],
       "ios": {
-          "supportsTablet": true,
+          "supportsTablet": false,
           "bundleIdentifier": "br.com.agenciaboz.mirasuprimentos",
           "buildNumber": "2.0.0"
       },
