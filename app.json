@@ -16,7 +16,10 @@
       "ios": {
           "supportsTablet": false,
           "bundleIdentifier": "br.com.agenciaboz.mirasuprimentos",
-          "buildNumber": "2.0.0"
+          "buildNumber": "2.0.0",
+          "infoPlist": {
+              "NSCameraUsageDescription": "This app uses the camera to scan QR codes of products in order to display their data."
+          }
       },
       "android": {
           "adaptiveIcon": {
